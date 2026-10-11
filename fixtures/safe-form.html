@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenCLI 本機安全表單練習</title>
+  <style>
+    body { max-width: 42rem; margin: 3rem auto; padding: 0 1rem; font: 1rem/1.6 system-ui, sans-serif; color: #17202a; }
+    label { display: block; margin: 1rem 0 .4rem; font-weight: 700; }
+    input { box-sizing: border-box; width: 100%; padding: .75rem; font: inherit; }
+    .notice { padding: 1rem; background: #eef6ff; border-left: 4px solid #2563eb; }
+    output { display: block; margin-top: .5rem; min-height: 1.6em; }
+  </style>
+</head>
+<body>
+  <h1>OpenCLI 本機安全表單練習</h1>
+  <p class="notice">此頁僅在你的本機測試。內容不會傳送或保存到任何網站；請只輸入虛構資料。</p>
+  <form id="practice-form" autocomplete="off">
+    <label for="display-name">練習名稱</label>
+    <input id="display-name" name="display-name" type="text" value="" placeholder="例如：Sample Reader">
+    <output id="preview" aria-live="polite">目前尚未輸入。</output>
+    <p>本頁沒有提交按鈕，也不會發出網路請求。</p>
+  </form>
+  <script>
+    const field = document.querySelector('#display-name');
+    const preview = document.querySelector('#preview');
+    field.addEventListener('input', () => {
+      preview.textContent = field.value ? `本機預覽：${field.value}` : '目前尚未輸入。';
+    });
+  </script>
+</body>
+</html>
